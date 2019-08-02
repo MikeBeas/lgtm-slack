@@ -3,6 +3,8 @@ _Does it look good to you?_
 
 The fun bits for your very own LGTM slack app. Bring your own server.
 
+![](https://raw.githubusercontent.com/MikeBeas/lgtm-slack/master/screenshot.png)
+
 # Setup
 1. Drop this `index.php` file somewhere onto a web server running PHP and rename it if you want
 2. Visit [api.slack.com/apps](https://api.slack.com/apps) and create a new app
