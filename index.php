@@ -30,8 +30,8 @@ $uri = explode( '/', $uri );
 
 
 $array = explode(" ", $_POST['text']);
-$foreground = $array[0];
-$background = $array[1];
+$foreground = str_replace(":", "", $array[0]);
+$background = str_replace(":", "", $array[1]);
 $preview = $array[2];
 
 if ($preview == "preview") {
