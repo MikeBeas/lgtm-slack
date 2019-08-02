@@ -30,9 +30,28 @@ $uri = explode( '/', $uri );
 
 
 $array = explode(" ", $_POST['text']);
-$foreground = str_replace(":", "", $array[0]);
-$background = str_replace(":", "", $array[1]);
-$preview = $array[2];
+
+if (!isset($array[0]) || !isset($array[1])) {
+
+  $response = [
+    "response_type" => "ephemeral",
+    "text" => "Looks like you forgot an emoji there..."
+  ];
+  
+  echo json_encode($response, JSON_PRETTY_PRINT);
+  exit();
+
+} else {
+  $foreground = str_replace(":", "", $array[0]);
+  $background = str_replace(":", "", $array[1]);
+}
+
+
+if (isset($array[2])) {
+  $preview = $array[2];
+} else {
+  $preview = null;
+}
 
 if ($preview == "preview") {
   $responseType = "ephemeral";
