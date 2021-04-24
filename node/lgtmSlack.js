@@ -32,8 +32,14 @@ const lgtm = (app) => {
     let type = "in_channel";
     if (parts[2] && parts[2] === "preview") type = "ephemeral";
 
-    const fore = parts[0].replace(/:/g, "");
-    const back = parts[1].replace(/:/g, "");
+    const clean = (text) => {
+      if (text.charAt(0) === ":") text = text.slice(1);
+      if (text.charAt(text.length - 1) === ":") text = text.slice(0, text.length - 1);
+      return text;
+    }
+
+    const fore = clean(parts[0]);
+    const back = clean(parts[1]);
 
     res.send({
       response_type: type,
