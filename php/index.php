@@ -42,8 +42,8 @@ if (!isset($array[0]) || !isset($array[1])) {
   exit();
 
 } else {
-  $foreground = str_replace(":", "", $array[0]);
-  $background = str_replace(":", "", $array[1]);
+  $foreground = rtrim(ltrim($array[0], ':'), ':');
+  $background = rtrim(ltrim($array[1], ':'), ':');
 }
 
 
